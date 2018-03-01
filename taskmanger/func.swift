@@ -39,33 +39,31 @@ Enter 3
 4.Exit
 enter 4
 """)
-var Input = Int(readLine()!)!
-    if Input == 1 {
-        createtasks()
+let Input = Int(readLine()!)
+    if Input == nil {
+        print("pls type in number 1-4")
+   mainMenu()
     }else if Input == 2{
         browseTasks()
     }else if Input == 3{
         taskComplete()
     }else if Input == 4{
         exit(0)
-    }else if Input == nil {
-        print("pls type in number 1-4")
-        sleep(2)
-        mainMenu()
+    }else if Input == 1 {
+     createtasks()
     }else{
-        print("pls type in muber 1-4")
+        print("pls type in number 1-4")
         sleep(2)
         mainMenu()
     }
 }
 func createtasks(){
-    print("how many days until it need to be completed then name next description ")
-    dates()
+    print("name first then description next how many days from now will it be due")
    // var y : DateFormatter = DateFormatter()
     //y.dateFormat = "MM/dd/yyyy"
     //y.string(from: date)
-    tasksArray.append(tasks(name: readLine()!, dateMade: Date(), description: readLine()!, complete: Bool(), dueDate: , dueDate: , dueDate: , numberTasks: tasksArray.count - 1))
-    print(tasksArray.count - 1)
+    tasksArray.append(tasks(name: readLine()!, dateMade: Date(), description: readLine()!, complete: Bool(), dueDate: dates() , numberTasks: tasksArray.count ))
+    print(tasksArray.count-1)
     for tasks in tasksArray{
        print("put the number you recived")
         let tasksNot = Int(readLine()!)!
@@ -116,13 +114,19 @@ func browseTasks() {
     sleep(3)
     mainMenu()
 }
-func dates(){
-    var numDays = Int(readLine()!)!
-    if numDays == nil {
+func dates()-> Date{
+    var numDays = Int(readLine()!)
+//    if numDays == nil {
+//        print("please type in a number")
+//    dates()
+//    }
+    
+    while numDays == nil {
         print("please type in a number")
-    dates()
+        numDays = Int(readLine()!)
     }
-    var numSeconds = numDays * 24 * 60 * 60 //number of seconds in the number of days the user entered
+    
+    var numSeconds = numDays! * 24 * 60 * 60 //number of seconds in the number of days the user entered
     var date = Date().addingTimeInterval(TimeInterval(numSeconds))
-    return
+    return date
 }
