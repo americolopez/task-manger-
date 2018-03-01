@@ -64,13 +64,9 @@ func createtasks(){
     //y.string(from: date)
     tasksArray.append(tasks(name: readLine()!, dateMade: Date(), description: readLine()!, complete: Bool(), dueDate: dates() , numberTasks: tasksArray.count ))
     print(tasksArray.count-1)
-    for tasks in tasksArray{
-        print("put the number you recived")
-        let tasksNot = Int(readLine()!)!
-        if tasksNot != nil && tasksNot <= tasksArray.count - 1 {
+            print("put the number you recived")
+            let tasksNot = Int(readLine()!)!
             tasksArray[tasksNot].complete = false
-        }
-    }
     mainMenu()
 }
 func taskComplete(){
@@ -87,7 +83,6 @@ func taskComplete(){
     sleep(2)
     mainMenu()
 }
-
 func browseTasks() {
     if tasksArray.count > 0{
         for tasks in tasksArray{
@@ -97,7 +92,7 @@ func browseTasks() {
                 duedate \(tasks.dueDate)
                 description \(tasks.description)
                 number \(tasks.numberTasks)
-                
+
                 """)
         }
     }
