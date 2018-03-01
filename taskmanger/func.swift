@@ -28,8 +28,8 @@ class tasks{
 var tasksArray = [tasks]()
 
 func mainMenu(){
-   var numberOfTasks = tasksArray.count
-print("""
+    var numberOfTasks = tasksArray.count
+    print("""
 1.create tasks
 Enter 1
 2.browse tasks
@@ -39,10 +39,10 @@ Enter 3
 4.Exit
 enter 4
 """)
-let Input = Int(readLine()!)
+    let Input = Int(readLine()!)
     if Input == nil {
         print("pls type in number 1-4")
-   mainMenu()
+        mainMenu()
     }else if Input == 2{
         browseTasks()
     }else if Input == 3{
@@ -50,7 +50,7 @@ let Input = Int(readLine()!)
     }else if Input == 4{
         exit(0)
     }else if Input == 1 {
-     createtasks()
+        createtasks()
     }else{
         print("pls type in number 1-4")
         sleep(2)
@@ -59,19 +59,19 @@ let Input = Int(readLine()!)
 }
 func createtasks(){
     print("name first then description next how many days from now will it be due")
-   // var y : DateFormatter = DateFormatter()
+    // var y : DateFormatter = DateFormatter()
     //y.dateFormat = "MM/dd/yyyy"
     //y.string(from: date)
     tasksArray.append(tasks(name: readLine()!, dateMade: Date(), description: readLine()!, complete: Bool(), dueDate: dates() , numberTasks: tasksArray.count ))
     print(tasksArray.count-1)
     for tasks in tasksArray{
-       print("put the number you recived")
+        print("put the number you recived")
         let tasksNot = Int(readLine()!)!
         if tasksNot != nil && tasksNot <= tasksArray.count - 1 {
             tasksArray[tasksNot].complete = false
         }
     }
-mainMenu()
+    mainMenu()
 }
 func taskComplete(){
     if tasksArray.count > 0{
@@ -87,16 +87,8 @@ func taskComplete(){
     sleep(2)
     mainMenu()
 }
-func tasksIncomplete(){
-    if tasksArray.count > 0 {
-        for tasks in tasksArray{
-            let tasksNot = Int(readLine()!)!
-            if tasksNot != nil && tasksNot <= tasksArray.count - 1 {
-                tasksArray[tasksNot].complete = false
-            }
-        }
-}
-mainMenu()
+
+    mainMenu()
 }
 func browseTasks() {
     if tasksArray.count > 0{
@@ -116,16 +108,10 @@ func browseTasks() {
 }
 func dates()-> Date{
     var numDays = Int(readLine()!)
-//    if numDays == nil {
-//        print("please type in a number")
-//    dates()
-//    }
-    
     while numDays == nil {
         print("please type in a number")
         numDays = Int(readLine()!)
     }
-    
     var numSeconds = numDays! * 24 * 60 * 60 //number of seconds in the number of days the user entered
     var date = Date().addingTimeInterval(TimeInterval(numSeconds))
     return date
