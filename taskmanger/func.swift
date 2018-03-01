@@ -88,8 +88,6 @@ func taskComplete(){
     mainMenu()
 }
 
-    mainMenu()
-}
 func browseTasks() {
     if tasksArray.count > 0{
         for tasks in tasksArray{
