@@ -60,9 +60,6 @@ enter 4
 }
 func createtasks(){
     print("name first then description next how many days from now will it be due")
-    // var y : DateFormatter = DateFormatter()
-    //y.dateFormat = "MM/dd/yyyy"
-    //y.string(from: date)
     tasksArray.append(tasks(name: readLine()!, dateMade: Date(), description: readLine()!, complete: Bool(), dueDate: dates() , numberTasks: tasksArray.count ))
     print(tasksArray.count-1)
             print("put the number you recived")
@@ -114,5 +111,8 @@ func dates()-> Date{
     }
     var numSeconds = numDays! * 24 * 60 * 60 //number of seconds in the number of days the user entered
     var date = Date().addingTimeInterval(TimeInterval(numSeconds))
+//    var dateFormatter : DateFormatter = DateFormatter()
+//    dateFormatter.dateFormat = "MM/dd/yyyy"
+//    dateFormatter.string(from: dates())
     return date
 }
