@@ -6,9 +6,16 @@
 //  Copyright © 2018 Americo Lopez. All rights reserved.
 //
 
+
+
+//Divide this file up into seperate files. Also file names should be representative of what's in the file so a file named func is confusing.
+
 import Foundation
+//Not sure what this does?
 var tasksComplete : Bool?
 
+
+//Move to a seperate file. Classes should always be in a file by themselves.
 class tasks{
     var name: String
     var dateMade : Date
@@ -25,8 +32,10 @@ class tasks{
         self.numberTasks = numberTasks
     }
 }
+//Move Somewhere else
 var tasksArray = [tasks]()
 
+//main swift maybe?
 func mainMenu(){
     var numberOfTasks = tasksArray.count
     print("""
@@ -58,6 +67,9 @@ enter 4
         mainMenu()
     }
 }
+
+//Remove Commented code!
+
 func createtasks(){
     print("name first then description next how many days from now will it be due")
     tasksArray.append(tasks(name: readLine()!, dateMade: Date(), description: readLine()!, complete: Bool(), dueDate: dates() , numberTasks: tasksArray.count ))

@@ -8,6 +8,8 @@
 
 import Foundation
 
+//Good job basic functionality is all there. Just make sure that you make the changes and break your project up more and you're all done 👌.
+
 mainMenu()
 
 
