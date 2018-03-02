@@ -35,7 +35,7 @@ class tasks{
 //Move Somewhere else
 var tasksArray = [tasks]()
 
-
+//main swift maybe?
 func mainMenu(){
     var numberOfTasks = tasksArray.count
     print("""
