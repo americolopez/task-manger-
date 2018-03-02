@@ -42,6 +42,7 @@ enter 4
     let Input = Int(readLine()!)
     if Input == nil {
         print("pls type in number 1-4")
+        sleep(2)
         mainMenu()
     }else if Input == 2{
         browseTasks()
@@ -65,8 +66,14 @@ func createtasks(){
     tasksArray.append(tasks(name: readLine()!, dateMade: Date(), description: readLine()!, complete: Bool(), dueDate: dates() , numberTasks: tasksArray.count ))
     print(tasksArray.count-1)
             print("put the number you recived")
-            let tasksNot = Int(readLine()!)!
-            tasksArray[tasksNot].complete = false
+             var tasksNot = Int(readLine()!)
+    while tasksNot != tasksArray.count-1{
+        print("put the number you recived")
+    tasksNot = Int(readLine()!)
+    }
+    if let tasksNot = tasksNot{
+        tasksArray[tasksNot].complete = false
+    }
     mainMenu()
 }
 func taskComplete(){
