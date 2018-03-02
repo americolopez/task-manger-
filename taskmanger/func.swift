@@ -11,64 +11,8 @@
 //Divide this file up into seperate files. Also file names should be representative of what's in the file so a file named func is confusing.
 
 import Foundation
-//Not sure what this does?
-var tasksComplete : Bool?
 
 
-//Move to a seperate file. Classes should always be in a file by themselves.
-class tasks{
-    var name: String
-    var dateMade : Date
-    var description: String
-    var complete: Bool
-    var dueDate: Date
-    var numberTasks: Int
-    init(name: String, dateMade: Date, description: String, complete: Bool, dueDate: Date, numberTasks: Int ){
-        self.name = name
-        self.dateMade = dateMade
-        self.description = description
-        self.complete = complete
-        self.dueDate = dueDate
-        self.numberTasks = numberTasks
-    }
-}
-//Move Somewhere else
-var tasksArray = [tasks]()
-
-//main swift maybe?
-func mainMenu(){
-    var numberOfTasks = tasksArray.count
-    print("""
-1.create tasks
-Enter 1
-2.browse tasks
-Enter 2
-3.completed tasks
-Enter 3
-4.Exit
-enter 4
-""")
-    let Input = Int(readLine()!)
-    if Input == nil {
-        print("pls type in number 1-4")
-        sleep(2)
-        mainMenu()
-    }else if Input == 2{
-        browseTasks()
-    }else if Input == 3{
-        taskComplete()
-    }else if Input == 4{
-        exit(0)
-    }else if Input == 1 {
-        createtasks()
-    }else{
-        print("pls type in number 1-4")
-        sleep(2)
-        mainMenu()
-    }
-}
-
-//Remove Commented code!
 
 func createtasks(){
     print("name first then description next how many days from now will it be due")
@@ -123,8 +67,5 @@ func dates()-> Date{
     }
     var numSeconds = numDays! * 24 * 60 * 60 //number of seconds in the number of days the user entered
     var date = Date().addingTimeInterval(TimeInterval(numSeconds))
-//    var dateFormatter : DateFormatter = DateFormatter()
-//    dateFormatter.dateFormat = "MM/dd/yyyy"
-//    dateFormatter.string(from: dates())
     return date
 }
